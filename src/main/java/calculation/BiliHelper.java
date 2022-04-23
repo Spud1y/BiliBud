@@ -28,7 +28,7 @@ public class BiliHelper {
      *
      * where ex: user passes in 15.03 mg/dl to get moles/L
      * 15.03 mg/dl * 10dl/L = 150.3 mg/L //converts dl -> L
-     * 150.3 mg/L /1000 = 0.1503 g/mg //converts milligrams -> grams
+     * 150.3 mg/L /1000 = 0.1503 g/L //converts milligrams -> grams
      * 0.1503 g/L * 1710.395785 um/g = 257.07// converts g/L -> um/L where 1710.395785 is molarity of bilirubin in um/g
      * = 257.07 um/L // Do the opposite for the function getMGfromUM
      */
