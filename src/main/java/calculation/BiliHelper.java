@@ -17,7 +17,21 @@ public class BiliHelper {
     private static double conversionConstant = 1710.395785; // this is molarity of bilirubin in micromols/g
     private static final RiskInfo riskInfo = RiskInfo.getInstance();
 
-    //Conversion is
+    /**
+     * conversion
+     * mg = milligrams
+     * dl = deci liter
+     * moles = molarity
+     * L = liter
+     *
+     * so to get mg/dl from moles/L
+     *
+     * where ex: user passes in 15.03 mg/dl to get moles/L
+     * 15.03 mg/dl * 10 //converts dl -> L
+     * 150.3 mg/L /1000 //converts milligrams to grams
+     * 0.1503 g/L * 1710.395785 um/g
+     * = 257.07 um/L
+     */
     /**
      * converts the concentration from micro moles/L to mg/dl
      * @param mgVal patient current concentration
