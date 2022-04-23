@@ -17,6 +17,13 @@ public class BiliHelper {
     private static double conversionConstant = 1710.395785; // this is molarity of bilirubin in micromols/g
     private static final RiskInfo riskInfo = RiskInfo.getInstance();
 
+    //Conversion is
+    /**
+     * converts the concentration from micro moles/L to mg/dl
+     * @param mgVal patient current concentration
+     * @return converted concentration
+     * @throws ParseException
+     */
     public double getUmFromMG(double mgVal) throws ParseException {
         DecimalFormat df = new DecimalFormat("##.00");
         double runningAnswer = mgVal * 10;
@@ -26,6 +33,12 @@ public class BiliHelper {
         return (Double) (df.parse(df.format(runningAnswer)));
     }
 
+    /**
+     * converts the concentration from micro to mg/dl moles/L
+     * @param umVal patient current concentration
+     * @return converted concentration
+     * @throws ParseException
+     */
     public double getMGFromUM(double umVal) throws ParseException {
         DecimalFormat df = new DecimalFormat("##.00");
         double runningAnswer = umVal / 10;
@@ -36,6 +49,12 @@ public class BiliHelper {
     }
 
 
+    /**
+     * Returns the risk zone that the patient is in
+     * @param pd - POJO containing patient details given by user
+     * @return - The range that the patient is in
+     * @throws ParseException
+     */
     public Ranges getRiskZone(PatientDetails pd) throws ParseException {
         double brLevel = pd.getTotalBillirubin();
 
@@ -64,8 +83,10 @@ public class BiliHelper {
 
     }
 
-
-
+    /**
+     * Returns the instance of this class. This class is an instance so it doens't need to be recreated each time
+     * @return
+     */
     public static BiliHelper getInstance() {
         if(instance == null) {
             instance = new BiliHelper();

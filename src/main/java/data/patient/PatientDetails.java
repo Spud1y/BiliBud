@@ -2,6 +2,9 @@ package data.patient;
 
 import java.util.Date;
 
+/**
+ * POJO containing possible inputs from user
+ */
 public class PatientDetails {
     public PatientDetails(int age, double totalBillirubin) {
         setAgeInHours(age);

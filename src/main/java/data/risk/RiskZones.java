@@ -1,5 +1,8 @@
 package data.risk;
 
+/**
+ * POJO contianing the risk zones object used in the risk map
+ */
 public class RiskZones {
     public double high;
     public double med;

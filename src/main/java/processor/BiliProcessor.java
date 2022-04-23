@@ -20,6 +20,15 @@ public class BiliProcessor {
     private static double totalBil;
     private static final BiliHelper helper = new BiliHelper();
 
+    /**
+     * Calculates and returns the range that the patient is in (high, low, medium
+     * @param ageHours - age at last data point taken by medical proffessional
+     * @param tBil - total bilirubin concentration at given data  point
+     * @param currentUnit - units the user input to represent bili concentration
+     * @return
+     * @throws ParseException
+     * @throws InvalidTimeException
+     */
     public static Ranges CalculateBili(Object ageHours, double tBil, BiliUnits.Units currentUnit) throws ParseException, InvalidTimeException {
         if(ageHours instanceof Integer) {
             age = (Integer) ageHours;
@@ -37,6 +46,12 @@ public class BiliProcessor {
         return generatePatientInfo();
     }
 
+    /**
+     * TODO add in the logic to take a Date object and calculate number of hours the patient is
+     * instead of getting the hours
+     * @return
+     * @throws ParseException
+     */
     /*public static Ranges CalculateBili(Date ageInDate, double tBil, BiliUnits.Units currentUnit) throws ParseException {
         DateTimeFormatter dtf = DateTimeFormatter.BASIC_ISO_DATE;
         LocalDate localDate = LocalDate.now();
@@ -48,6 +63,11 @@ public class BiliProcessor {
         return generatePatientInfo();
     }*/
 
+    /**
+     * Takes the input information and generates the patient info pojo
+     * @return
+     * @throws ParseException
+     */
     private static Ranges generatePatientInfo() throws ParseException {
         PatientDetails pd = new PatientDetails(age, totalBil);
         return helper.getRiskZone(pd);

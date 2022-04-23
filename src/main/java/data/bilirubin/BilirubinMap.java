@@ -2,13 +2,18 @@ package data.bilirubin;
 
 import data.risk.RiskZones;
 
-import java.util.HashMap;
 import java.util.TreeMap;
 
 public class BilirubinMap {
     private static BilirubinMap instance;
     private TreeMap<Integer, RiskZones> map = new TreeMap();
 
+    /**
+     * A map with the zone information schema
+     * ex: map.put(12, new RiskZones(7.0, 5.1, 4.0));
+     * where 12 = hours old of patient
+     * Riskzone() = high, medium, low risk zone levels in mg/dl
+     */
     private BilirubinMap() {
         //mg/dl -> Risk zones H,M,L
         // > H High Risk Zone

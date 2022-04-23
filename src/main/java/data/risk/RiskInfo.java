@@ -1,5 +1,8 @@
 package data.risk;
 
+/**
+ * POJO containing the test that will be used in the UI for what the risk is for the patient
+ */
 public class RiskInfo {
     String Low;
     String LowIntermediate;
